@@ -31,5 +31,5 @@ object Main extends App {
   //TODO send a PrintEcho message to the PrintEcho actor
 
   //System.console.readLine()
-  //system.shutdown()
+  system.shutdown()
 }
