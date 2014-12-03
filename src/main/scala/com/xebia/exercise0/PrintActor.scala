@@ -13,11 +13,14 @@ object PrintActor {
 
 class PrintActor extends Actor { // TODO extend from Actor
   import PrintActor._
-
+  
   def receive = {
     //TODO handle the Print message here by println'ing the text in the Print message
     // case ... =>
     case "test" =>  println("received test")
-    case _      =>  println("received unknown message")
+    //case _      =>  println("received unknown message")
+    case message =>
+        println(s"Received $message")
+        sender() ! message
   }
 }

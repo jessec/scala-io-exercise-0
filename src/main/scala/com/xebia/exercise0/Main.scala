@@ -3,6 +3,8 @@ package exercise0
 
 import scala.concurrent.duration._
 
+import scala.concurrent.Await
+
 import akka.actor.ActorSystem
 import akka.pattern.ask
 import akka.util.Timeout
@@ -20,10 +22,21 @@ object Main extends App {
   println("This is from main.")
   
   print ! "test"
+  print ! "echo"
+  
 
   //val echo = ??? //TODO: Create the EchoActor similar to the print actor
   //TODO: Send an echo message to the echo actor and print the response using the ask pattern
-
+  val echo = system.actorOf(EchoActor.props, EchoActor.name)
+  
+  echo ! "test"
+  
+  val future = echo ? AskNameMessage
+  
+  val result = Await.result(future, timeout.duration).asInstanceOf[String]
+  println(result)
+  
+  
   // val forward = ??? //TODO: Create the forward actor with the print actor as its parameter
   //TODO: Send the forward actor a Print message
 
