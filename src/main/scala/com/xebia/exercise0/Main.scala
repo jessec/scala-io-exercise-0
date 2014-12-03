@@ -18,6 +18,8 @@ object Main extends App {
   val print = system.actorOf(PrintActor.props, PrintActor.name)
   //TODO: Send a Print message to the print actor, sending is done with the '!' operator
   println("This is from main.")
+  
+  print ! "test"
 
   //val echo = ??? //TODO: Create the EchoActor similar to the print actor
   //TODO: Send an echo message to the echo actor and print the response using the ask pattern
@@ -28,6 +30,6 @@ object Main extends App {
   // val printEcho = ??? //TODO: Create the PrintEcho actor
   //TODO send a PrintEcho message to the PrintEcho actor
 
-  System.console.readLine()
-  system.shutdown()
+  //System.console.readLine()
+  //system.shutdown()
 }

@@ -11,11 +11,13 @@ object PrintActor {
   val name = "print-actor"
 }
 
-class PrintActor { // TODO extend from Actor
+class PrintActor extends Actor { // TODO extend from Actor
   import PrintActor._
 
   def receive = {
     //TODO handle the Print message here by println'ing the text in the Print message
     // case ... =>
+    case "test" =>  println("received test")
+    case _      =>  println("received unknown message")
   }
 }
