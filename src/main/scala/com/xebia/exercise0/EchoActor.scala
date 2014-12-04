@@ -14,7 +14,8 @@ object EchoActor {
 class EchoActor extends Actor {
 
   def receive = {
-    
+
+    case message => sender ! message
     case AskNameMessage => sender ! "Fred"
     //TODO reply with the same message you received. The ActorRef of the sender can be accesses via the sender() method:
     

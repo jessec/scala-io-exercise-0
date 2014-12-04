@@ -31,9 +31,9 @@ object Main extends App {
   
   echo ! "test"
   
-  val future = echo ? AskNameMessage
+  val future = echo  ? "rest" //? AskNameMessage
   
-  val result = Await.result(future, timeout.duration).asInstanceOf[String]
+  val result = Await.result(future, timeout.duration) //.asInstanceOf[String]
   println(result)
   
   
